@@ -8,6 +8,8 @@ import com.sudoku.SudokuBoard;
 public class Backtraking implements Algorithm{
     @Override
     public void solve(SudokuBoard sudokuBoard){
-        sudokuBoard.generateEmptyArraySudoku();
+
     };
+
+
 }

@@ -7,25 +7,21 @@ import java.util.*;
  */
 public class SudokuBoard {
     private int boardLimit = 9;
-    private String[][] arrayBoard = new String[boardLimit][boardLimit];
-    private LinkedList<Cell> board = new LinkedList<Cell>();
+    private int[][] arrayBoard = new int[boardLimit][boardLimit];
+    private Boolean[][] iniBoard = new Boolean[boardLimit][boardLimit];
 
     public SudokuBoard() {
-        generateSudoku();
+        generateEmptyArraySudoku();
     }
 
-    public void generateSudoku() {
-        for (int posX = 0; posX < boardLimit; posX++) {
-            for (int posY = 0; posY < boardLimit; posY++) {
-                board.add(new Cell(posX, posY, 0));
-            }
-        }
+    public SudokuBoard(int[][] arrayBoard) {
+        this.arrayBoard = arrayBoard;
     }
 
     public void generateArraySudoku() {
         for (int posX = 0; posX < boardLimit; posX++) {
             for (int posY = 0; posY < boardLimit; posY++) {
-                arrayBoard[posX][posY] = "" + posX + posY;
+                arrayBoard[posX][posY] = Integer.parseInt(String.valueOf(posX)+(String.valueOf(posY)));
             }
         }
     }
@@ -33,7 +29,17 @@ public class SudokuBoard {
     public void generateEmptyArraySudoku() {
         for (int posX = 0; posX < boardLimit; posX++) {
             for (int posY = 0; posY < boardLimit; posY++) {
-                arrayBoard[posX][posY] = "" + 0;
+                arrayBoard[posX][posY] = 0;
+            }
+        }
+    }
+
+    public void generateIniSudoku() {
+        for (int posX = 0; posX < boardLimit; posX++) {
+            for (int posY = 0; posY < boardLimit; posY++) {
+                if (arrayBoard[posX][posY] == 0){
+                    iniBoard [posX][posY] = false;
+                }
             }
         }
     }
@@ -57,7 +63,7 @@ public class SudokuBoard {
         System.out.println(sudoku.getCell(5, 5));
     }
 
-    public String getCell(int i, int j) {
+    public int getCell(int i, int j) {
         return arrayBoard[i][j];
     }
 
@@ -67,13 +73,5 @@ public class SudokuBoard {
         int randomNum;
         randomNum = minimum + (int) (Math.random() * maximum);
         return randomNum;
-    }
-
-    public void setBoard(LinkedList<Cell> board) {
-        this.board = board;
-    }
-
-    public LinkedList<Cell> getBoard() {
-        return board;
     }
 }
