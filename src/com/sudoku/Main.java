@@ -7,5 +7,6 @@ public class Main {
         for(int iterator = 0; iterator < sudokuBoard.getBoard().size();iterator++){
             System.out.println(sudokuBoard.getBoard().get(iterator));
         }
+        System.out.println("--------" + sudokuBoard.getBoard().size());
     }
 }
