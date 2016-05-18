@@ -12,10 +12,12 @@ public class SudokuBoard {
 
     public SudokuBoard() {
         generateEmptyArraySudoku();
+        generateIniSudoku();
     }
 
     public SudokuBoard(int[][] arrayBoard) {
         this.arrayBoard = arrayBoard;
+        generateIniSudoku();
     }
 
     public void generateArraySudoku() {
@@ -39,9 +41,19 @@ public class SudokuBoard {
             for (int posY = 0; posY < boardLimit; posY++) {
                 if (arrayBoard[posX][posY] == 0){
                     iniBoard [posX][posY] = false;
+                }else {
+                    iniBoard [posX][posY] = true;
                 }
             }
         }
+    }
+
+    public Boolean [][] getIniSudoku(){
+        return iniBoard;
+    }
+
+    public Boolean getIniCell(int i, int j) {
+        return iniBoard[i][j];
     }
 
     @Override
@@ -50,6 +62,17 @@ public class SudokuBoard {
         for (int posX = 0; posX < boardLimit; posX++) {
             for (int posY = 0; posY < boardLimit; posY++) {
                 cadena = cadena + getCell(posX, posY) + " ";
+            }
+            cadena =  cadena+ "\n" + " ";
+        }
+        return cadena;
+    }
+
+    public String iniBoardToString() {
+        String cadena = " ";
+        for (int posX = 0; posX < boardLimit; posX++) {
+            for (int posY = 0; posY < boardLimit; posY++) {
+                cadena = cadena + String.valueOf(getIniCell(posX, posY)) + " ";
             }
             cadena =  cadena+ "\n" + " ";
         }
@@ -65,6 +88,10 @@ public class SudokuBoard {
 
     public int getCell(int i, int j) {
         return arrayBoard[i][j];
+    }
+
+    public void setCell(int i, int j, int value) {
+        arrayBoard[i][j] = value;
     }
 
     private static int getRandomNumber() {
