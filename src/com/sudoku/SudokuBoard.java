@@ -1,7 +1,5 @@
 package com.sudoku;
 
-import java.util.*;
-
 /**
  * This class represent a cell of Sudoku Board
  */
@@ -13,17 +11,49 @@ public class SudokuBoard {
         this.arrayBoard = arrayBoard;
     }
 
-//    public Boolean isThereAnEmptyCell()
-//    {
-//        for (int posX = 0; posX < boardLimit; posX++) {
-//            for (int posY = 0; posY < boardLimit; posY++) {
-//                if (arrayBoard[posX][posY] == 0) {
-//                    return true;
-//                }
-//            }
-//        }
-//        return false;
-//    }
+    public Boolean isThereAnEmptyCell() {
+        for (int i = 0; i < boardLimit; i++) {
+            for (int j = 0; j < boardLimit; j++) {
+                if (getCell(i, j) == 0) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public Cell getAnEmptyCell() {
+        for (int i = 0; i < boardLimit; i++) {
+            for (int j = 0; j < boardLimit; j++) {
+                if (getCell(i, j) == 0) {
+                    return new Cell(i,j,0);
+                }
+            }
+        }
+        return null;
+    }
+
+    public int getEmptyCellX() {
+        for (int i = 0; i < boardLimit; i++) {
+            for (int j = 0; j < boardLimit; j++) {
+                if (getCell(i, j) == 0) {
+                    return i;
+                }
+            }
+        }
+        return 0;
+    }
+
+    public int getEmptyCellY() {
+        for (int i = 0; i < boardLimit; i++) {
+            for (int j = 0; j < boardLimit; j++) {
+                if (getCell(i, j) == 0) {
+                    return j;
+                }
+            }
+        }
+        return 0;
+    }
 
     @Override
     public String toString() {
@@ -32,7 +62,7 @@ public class SudokuBoard {
             for (int posY = 0; posY < boardLimit; posY++) {
                 cadena = cadena + getCell(posX, posY) + " ";
             }
-            cadena =  cadena+ "\n" + " ";
+            cadena = cadena + "\n" + " ";
         }
         return cadena;
     }

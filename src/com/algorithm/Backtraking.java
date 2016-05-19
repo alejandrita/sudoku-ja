@@ -1,5 +1,6 @@
 package com.algorithm;
 
+import com.sudoku.Cell;
 import com.sudoku.SudokuBoard;
 
 
@@ -7,15 +8,20 @@ import com.sudoku.SudokuBoard;
  * Created by Alejandra on 17/05/2016.
  */
 public class Backtraking implements Algorithm {
-    int boardLimit = 9;
-
 
     @Override
     public Boolean solve(SudokuBoard sudokuBoard) {
-        int i = getEmptyCellX(sudokuBoard);
-        int j = getEmptyCellY(sudokuBoard);
-        if (!isThereAnEmptyCell(sudokuBoard))
+//        int i = sudokuBoard.getEmptyCellX();
+//        int j = sudokuBoard.getEmptyCellY();
+        int i;
+        int j;
+        if (!sudokuBoard.isThereAnEmptyCell()) {
             return true;
+        } else {
+            Cell c = sudokuBoard.getAnEmptyCell();
+            i = c.getPosX();
+            j = c.getPosY();
+        }
         for (int num = 1; num <= 9; num++) {
             if (isPracticable(i, j, sudokuBoard, num)) {
                 sudokuBoard.setCell(i, j, num);
@@ -26,39 +32,6 @@ public class Backtraking implements Algorithm {
             }
         }
         return false;
-    }
-
-    public Boolean isThereAnEmptyCell(SudokuBoard sudokuBoard) {
-        for (int i = 0; i < boardLimit; i++) {
-            for (int j = 0; j < boardLimit; j++) {
-                if (sudokuBoard.getCell(i, j) == 0) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public int getEmptyCellX(SudokuBoard sudokuBoard) {
-        for (int i = 0; i < boardLimit; i++) {
-            for (int j = 0; j < boardLimit; j++) {
-                if (sudokuBoard.getCell(i, j) == 0) {
-                    return i;
-                }
-            }
-        }
-        return 0;
-    }
-
-    public int getEmptyCellY(SudokuBoard sudokuBoard) {
-        for (int i = 0; i < boardLimit; i++) {
-            for (int j = 0; j < boardLimit; j++) {
-                if (sudokuBoard.getCell(i, j) == 0) {
-                    return j;
-                }
-            }
-        }
-        return 0;
     }
 
     public Boolean isPracticable(int i, int j, SudokuBoard sudokuBoard, int num) {

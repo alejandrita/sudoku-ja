@@ -4,18 +4,14 @@ package com.sudoku;
  * This class represent a cell of Sudoku Board
  */
 public class Cell {
-    private int elementValue;
+    private int value;
     private int posX = 0;
     private int posY = 0;
 
     public Cell(int x, int y, int value) {
         this.posX = x;
         this.posY = y;
-        this.elementValue = value;
-    }
-
-    public Cell() {
-        this.elementValue = 0;
+        this.value = value;
     }
 
     public void setPosX(int posX) {
@@ -26,8 +22,8 @@ public class Cell {
         this.posY = posY;
     }
 
-    public void setElementValue(int elementValue) {
-        this.elementValue = elementValue;
+    public void setValue(int value) {
+        this.value = value;
     }
 
     public int getPosX() {
@@ -38,12 +34,12 @@ public class Cell {
         return this.posY;
     }
 
-    public int getElementValue() {
-        return this.elementValue;
+    public int getValue() {
+        return this.value;
     }
 
     @Override
     public String toString() {
-        return "PosX: " + getPosX() + " PosY: " + getPosY() + " Value: " + getElementValue();
+        return "PosX: " + getPosX() + " PosY: " + getPosY() + " Value: " + getValue();
     }
 }

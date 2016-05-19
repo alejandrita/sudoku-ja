@@ -8,44 +8,46 @@ public class BacktrackingTest {
 
     @Test
     public void test() {
-//        int grid[][] = {{3, 0, 6, 5, 0, 8, 4, 0, 0},
-//                        {5, 2, 0, 0, 0, 0, 0, 0, 0},
-//                        {0, 8, 7, 0, 0, 0, 0, 3, 1},
-//                        {0, 0, 3, 0, 1, 0, 0, 8, 0},
-//                        {9, 0, 0, 8, 6, 3, 0, 0, 5},
-//                        {0, 5, 0, 0, 9, 0, 6, 0, 0},
-//                        {1, 3, 0, 0, 0, 0, 2, 5, 0},
-//                        {0, 0, 0, 0, 0, 0, 0, 7, 4},
-//                        {0, 0, 5, 2, 0, 6, 3, 0, 0}};
-        int grid[][] = {{0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0},};
 
-//        1 2 3 4 5 6 7 8 9
-//        4 5 6 7 8 9 1 2 3
-//        7 8 9 1 2 3 4 5 6
-//        2 1 4 3 6 5 8 9 7
-//        3 6 5 8 9 7 2 1 4
-//        8 9 7 2 1 4 3 6 5
-//        5 3 1 6 4 2 9 7 8
-//        6 4 2 9 7 8 5 3 1
-//        9 7 8 5 3 1 6 4 2
+//        int grid[][] = {{0, 0, 0, 0, 0, 0, 0, 0, 0},
+//                        {0, 0, 0, 0, 0, 0, 0, 0, 0},
+//                        {0, 0, 0, 0, 0, 0, 0, 0, 0},
+//                        {0, 0, 0, 0, 0, 0, 0, 0, 0},
+//                        {0, 0, 0, 0, 0, 0, 0, 0, 0},
+//                        {0, 0, 0, 0, 0, 0, 0, 0, 0},
+//                        {0, 0, 0, 0, 0, 0, 0, 0, 0},
+//                        {0, 0, 0, 0, 0, 0, 0, 0, 0},
+//                        {0, 0, 0, 0, 0, 0, 0, 0, 0},};
+
+//        Sol             1 2 3 4 5 6 7 8 9
+//                        4 5 6 7 8 9 1 2 3
+//                        7 8 9 1 2 3 4 5 6
+//                        2 1 4 3 6 5 8 9 7
+//                        3 6 5 8 9 7 2 1 4
+//                        8 9 7 2 1 4 3 6 5
+//                        5 3 1 6 4 2 9 7 8
+//                        6 4 2 9 7 8 5 3 1
+//                        9 7 8 5 3 1 6 4 2
 
 //        int grid[][] = {{7, 9, 0, 0, 0, 0, 3, 0, 0},
-//                {0, 0, 0, 0, 0, 6, 9, 0, 0},
-//                {8, 0, 0, 0, 3, 0, 0, 7, 6},
-//                {0, 0, 0, 0, 0, 5, 0, 0, 2},
-//                {0, 0, 5, 4, 1, 8, 7, 0, 0},
-//                {4, 0, 0, 7, 0, 0, 0, 0, 0},
-//                {6, 1, 0, 0, 9, 0, 0, 0, 8},
-//                {0, 0, 2, 3, 0, 0, 0, 0, 0},
-//                {0, 0, 9, 0, 0, 0, 0, 5, 4},};
+//                        {0, 0, 0, 0, 0, 6, 9, 0, 0},
+//                        {8, 0, 0, 0, 3, 0, 0, 7, 6},
+//                        {0, 0, 0, 0, 0, 5, 0, 0, 2},
+//                        {0, 0, 5, 4, 1, 8, 7, 0, 0},
+//                        {4, 0, 0, 7, 0, 0, 0, 0, 0},
+//                        {6, 1, 0, 0, 9, 0, 0, 0, 8},
+//                        {0, 0, 2, 3, 0, 0, 0, 0, 0},
+//                        {0, 0, 9, 0, 0, 0, 0, 5, 4},};
+
+        int grid[][] = {{3, 0, 6, 5, 0, 8, 4, 0, 0},
+                        {5, 2, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 8, 7, 0, 0, 0, 0, 3, 1},
+                        {0, 0, 3, 0, 1, 0, 0, 8, 0},
+                        {9, 0, 0, 8, 6, 3, 0, 0, 5},
+                        {0, 5, 0, 0, 9, 0, 6, 0, 0},
+                        {1, 3, 0, 0, 0, 0, 2, 5, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 7, 4},
+                        {0, 0, 5, 2, 0, 6, 3, 0, 0}};
 
         SudokuBoard sudokuBoard = new SudokuBoard(grid);
         Backtraking backtraking = new Backtraking();
@@ -95,7 +97,6 @@ public class BacktrackingTest {
         assertTrue(isUsedInSubGrid);
         isUsedInSubGrid = backtraking.isUsedInSubGrid(1,1, sudokuBoard, 1);
         assertFalse(isUsedInSubGrid);
-
         isUsedInSubGrid = backtraking.isUsedInSubGrid(8,8, sudokuBoard, 7);
         assertTrue(isUsedInSubGrid);
         isUsedInSubGrid = backtraking.isUsedInSubGrid(7,1, sudokuBoard, 6);
@@ -107,9 +108,9 @@ public class BacktrackingTest {
         int grid[][] = {{3, 0, 6, 5, 0, 8, 4, 0, 0},
                         {5, 2, 0, 0, 0, 0, 0, 0, 0},
                         {0, 8, 7, 0, 0, 0, 0, 3, 1},
-                {0, 0, 3, 0, 1, 0, 0, 8, 0},
+                        {0, 0, 3, 0, 1, 0, 0, 8, 0},
                         {9, 0, 0, 8, 6, 3, 0, 0, 5},
-                {0, 5, 0, 0, 9, 0, 6, 0, 0},
+                        {0, 5, 0, 0, 9, 0, 6, 0, 0},
                         {1, 3, 0, 0, 0, 0, 2, 5, 0},
                         {0, 0, 0, 0, 0, 0, 0, 7, 4},
                         {0, 0, 5, 2, 0, 6, 3, 0, 0}};
@@ -124,29 +125,25 @@ public class BacktrackingTest {
 
     @Test
     public void getInitPositionForSubGridTest() {
-        // 1 2 3 4 5 6 7 8 9
+        // 0 1 2 3 4 5 6 7 8
         Backtraking backtraking = new Backtraking();
-
         int initPos = backtraking.getInitPositionForSubGrid(0);
         assertEquals(0, initPos);
         initPos = backtraking.getInitPositionForSubGrid(1);
         assertEquals(0, initPos);
         initPos = backtraking.getInitPositionForSubGrid(2);
         assertEquals(0, initPos);
-
         initPos = backtraking.getInitPositionForSubGrid(3);
         assertEquals(3, initPos);
         initPos = backtraking.getInitPositionForSubGrid(4);
         assertEquals(3, initPos);
         initPos = backtraking.getInitPositionForSubGrid(5);
         assertEquals(3, initPos);
-
         initPos = backtraking.getInitPositionForSubGrid(6);
         assertEquals(6, initPos);
         initPos = backtraking.getInitPositionForSubGrid(7);
         assertEquals(6, initPos);
         initPos = backtraking.getInitPositionForSubGrid(8);
         assertEquals(6, initPos);
-
     }
 }
