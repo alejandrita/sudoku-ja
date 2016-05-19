@@ -8,36 +8,57 @@ import com.sudoku.SudokuBoard;
  */
 public class Backtraking implements Algorithm {
     int boardLimit = 9;
-    int i, j;
+
 
     @Override
     public Boolean solve(SudokuBoard sudokuBoard) {
-
+        int i = getEmptyCellX(sudokuBoard);
+        int j = getEmptyCellY(sudokuBoard);
         if (!isThereAnEmptyCell(sudokuBoard))
             return true;
         for (int num = 1; num <= 9; num++) {
             if (isPracticable(i, j, sudokuBoard, num)) {
                 sudokuBoard.setCell(i, j, num);
-                if (solve(sudokuBoard))
+                if (solve(sudokuBoard)) {
                     return true;
+                }
                 sudokuBoard.setCell(i, j, 0);
             }
         }
         return false;
     }
 
-    public Boolean isThereAnEmptyCell(SudokuBoard sudokuBoard)
-    {
+    public Boolean isThereAnEmptyCell(SudokuBoard sudokuBoard) {
         for (int i = 0; i < boardLimit; i++) {
             for (int j = 0; j < boardLimit; j++) {
-                if (sudokuBoard.getCell(i,j) == 0) {
-                    this.i = i;
-                    this.j = j;
+                if (sudokuBoard.getCell(i, j) == 0) {
                     return true;
                 }
             }
         }
         return false;
+    }
+
+    public int getEmptyCellX(SudokuBoard sudokuBoard) {
+        for (int i = 0; i < boardLimit; i++) {
+            for (int j = 0; j < boardLimit; j++) {
+                if (sudokuBoard.getCell(i, j) == 0) {
+                    return i;
+                }
+            }
+        }
+        return 0;
+    }
+
+    public int getEmptyCellY(SudokuBoard sudokuBoard) {
+        for (int i = 0; i < boardLimit; i++) {
+            for (int j = 0; j < boardLimit; j++) {
+                if (sudokuBoard.getCell(i, j) == 0) {
+                    return j;
+                }
+            }
+        }
+        return 0;
     }
 
     public Boolean isPracticable(int i, int j, SudokuBoard sudokuBoard, int num) {
