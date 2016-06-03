@@ -23,7 +23,7 @@ public class SudokuGenerator {
      * @param maxComplexity The max empty cells per subGrid
      * @return The sudoku board generated
      */
-    public static void generate(int minComplexity, int maxComplexity) {
+    public static SudokuBoard generate(int minComplexity, int maxComplexity) {
         setOneCellOnSubGrids();
 
         Algorithm backtracking = new Backtracking();
@@ -34,6 +34,8 @@ public class SudokuGenerator {
         clearNCellsOnSubGrids(minComplexity, maxComplexity);
 
         exportSudokuGame();
+
+        return board;
     }
 
     /**

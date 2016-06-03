@@ -2,6 +2,7 @@ package com.algorithm;
 
 import com.sudoku.Cell;
 import com.sudoku.SudokuBoard;
+import com.utils.TimeManager;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,6 +13,8 @@ import java.util.List;
  */
 public class PeterNorvig implements Algorithm {
     private SudokuBoard board;
+    public double time;
+    public TimeManager timeManager = new TimeManager();
 
     /**
      * Solve a sudoku board game
@@ -21,9 +24,12 @@ public class PeterNorvig implements Algorithm {
      */
     @Override
     public Boolean solve(SudokuBoard sudokuBoard) {
+        timeManager.start();
         this.board = sudokuBoard;
 
         if (!this.board.hasAnEmptyCell()) {
+            timeManager.stop();
+            this.time = timeManager.getSeconds();
             return true;
         }
 
@@ -31,13 +37,20 @@ public class PeterNorvig implements Algorithm {
 
         for (Integer num : getNumbersForCell(cell)) {
             this.board.setCell(cell, num);
-            if (solve(this.board))
+            if (solve(this.board)) {
+                timeManager.stop();
+                this.time = timeManager.getSeconds();
                 return true;
+            }
         }
 
         this.board.clearCell(cell);
 
         return false;
+    }
+
+    public double getTime() {
+        return this.time;
     }
 
     /**

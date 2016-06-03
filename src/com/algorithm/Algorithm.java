@@ -14,4 +14,6 @@ public interface Algorithm {
      * @return The condition of game result
      */
     public Boolean solve(SudokuBoard sudokuBoard);
+
+    public double getTime();
 }

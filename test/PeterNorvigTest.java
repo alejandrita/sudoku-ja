@@ -28,5 +28,6 @@ public class PeterNorvigTest {
         SudokuBoard sudokuBoard = new SudokuBoard(grid);
         Algorithm peterNorvig = new PeterNorvig();
         assertTrue(peterNorvig.solve(sudokuBoard));
+        System.out.println(peterNorvig.getTime());
     }
 }

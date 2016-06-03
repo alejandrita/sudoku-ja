@@ -1,6 +1,9 @@
 import com.algorithm.Algorithm;
 import com.algorithm.Backtracking;
+import com.algorithm.PeterNorvig;
 import com.sudoku.SudokuBoard;
+import com.utils.SudokuGenerator;
+import com.utils.TimeManager;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -23,9 +26,9 @@ public class BacktrackingTest {
                         {1, 3, 0, 0, 0, 0, 2, 5, 0},
                         {0, 0, 0, 0, 0, 0, 0, 7, 4},
                         {0, 0, 5, 2, 0, 6, 3, 0, 0}};
-
-        SudokuBoard sudokuBoard = new SudokuBoard(grid);
+        SudokuBoard sudokuBoard = SudokuGenerator.generate(5,8);
         Algorithm backtraking = new Backtracking();
         assertTrue(backtraking.solve(sudokuBoard));
+        System.out.println(backtraking.getTime());
     }
 }
